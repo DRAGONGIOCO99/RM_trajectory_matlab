@@ -19,13 +19,10 @@ ro2=0.4;
 c1=[0 0 0.5]';
 c2=[0 0 0.75]';
 
-
 R1=[-1 0 0;0 -1 0;0 0 1]; % rotazione di "pi" intorno z per allineare asse c verso pto iniziale 
 R2=[0 -1 0;1 0 0;0 0 1]; % rotaazione di "pi/2"
 
 
-T=3; % se ogni segmento/traiettoria durasse 3 secondi
-N=11 ;% numero di coppie di punti da interpolare 
 tk=[0 ,4, 8, 12, 16, 20, 24, 28]; % tempo di simulazione N*T durata tot traiettoria 
 p=[p0 p1 p2 p3 p4 p5 p6 p7 ];
 
@@ -35,13 +32,13 @@ p=[p0 p1 p2 p3 p4 p5 p6 p7 ];
 alfa =[0 -pi/2 0];
 
 %% trapeziodal profile for "s"
-[s_1, s_dot_1, s_dot_dot_1,s1,delta_1]=trapezoidal_profile(tk(1),tk(2),p0,p1,N*T,0,0);
-[s_2, s_dot_2, s_dot_dot_2,s2,delta_2]=trapezoidal_profile(tk(2),tk(3),p1,p2,N*T,0,0);
-[sc_1, s_dotc_1, s_dot_dotc_1,sc1,deltac_1]=s_circonferenza(tk(3),tk(4),p2,p3,N*T,c1,-pi/2,0,0);
-[s_3, s_dot_3, s_dot_dot_3,s3,delta_3]=trapezoidal_profile(tk(4),tk(5),p3,p4,N*T,0,0);
-[sc_2, s_dotc_2, s_dot_dotc_2,sc2,deltac_2]=s_circonferenza(tk(5),tk(6),p4,p5,N*T,c2,-pi/2,0,0);
-[s_4, s_dot_4, s_dot_dot_4,s4,delta_4]=trapezoidal_profile(tk(6),tk(7),p5,p6,N*T,0,0);
-[s_5, s_dot_5, s_dot_dot_5,s5,delta_5]=trapezoidal_profile(tk(7),tk(8),p6,p7,N*T,0,0);
+[s_1, s_dot_1, s_dot_dot_1,s1,delta_1]=trapezoidal_profile(tk(1),tk(2),p0,p1,tk(end),0,0);
+[s_2, s_dot_2, s_dot_dot_2,s2,delta_2]=trapezoidal_profile(tk(2),tk(3),p1,p2,tk(end),0,0);
+[sc_1, s_dotc_1, s_dot_dotc_1,sc1,deltac_1]=s_circonferenza(tk(3),tk(4),p2,p3,tk(end),c1,-pi/2,0,0);
+[s_3, s_dot_3, s_dot_dot_3,s3,delta_3]=trapezoidal_profile(tk(4),tk(5),p3,p4,tk(end),0,0);
+[sc_2, s_dotc_2, s_dot_dotc_2,sc2,deltac_2]=s_circonferenza(tk(5),tk(6),p4,p5,tk(end),c2,-pi/2,0,0);
+[s_4, s_dot_4, s_dot_dot_4,s4,delta_4]=trapezoidal_profile(tk(6),tk(7),p5,p6,tk(end),0,0);
+[s_5, s_dot_5, s_dot_dot_5,s5,delta_5]=trapezoidal_profile(tk(7),tk(8),p6,p7,tk(end),0,0);
 
 
 
@@ -56,7 +53,7 @@ alfa =[0 -pi/2 0];
 
     % definizione tempi:
     ts=linspace(0,tk(end),1000*tk(end));
-    t=linspace(0,N*T,1000*T*N);
+    t=ts;
 
     % di posizione
     figure 
