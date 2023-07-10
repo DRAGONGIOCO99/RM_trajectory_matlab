@@ -40,8 +40,13 @@ R_a01=R_asse_angolo(r1,thetaf1);
 t1=tk(1):Ts:tk(2);
 R_01d=zeros(3*length(t1),3);
 
-for i=1:3:3*length(t1)   
-R_01d(i:i+2,:) = R0*R_asse_angolo(r1,theta_1(i));
+for i=1:length(theta1)
+    if i==1 
+    R_01d(i:i+2,:) = R0*R_asse_angolo(r1,theta1(i));
+    k=4;
+    end
+    R_01d(k:k+2,:) = R0*R_asse_angolo(r1,theta1(i));
+    k=k+3;
 end
 save('R_01d.txt','R_01d','-ascii','-double')
 theta_dot_1=theta_dot_1(1:tk(2)/Ts);
@@ -53,12 +58,17 @@ save('w1.txt','w_1','-ascii','-double')
 % calcolo thetaf2 e R12
 [thetaf2,r2,R12]=asse_angolo(R1,R2);
 R_a12=R_asse_angolo(r2,thetaf2);
-[theta_2, theta_dot_2, theta_dot_dot_2,theta2,delta_3]=trapezoidal_profile(tk(2),tk(3),0,thetaf2,tk(end),0,0);
+[theta_2, theta_dot_2, theta_dot_dot_2,theta2,delta_2]=trapezoidal_profile(tk(2),tk(3),0,thetaf2,tk(end),0,0);
 t1=tk(2):Ts:tk(3);
 R_12d=zeros(3*length(t1),3);
 
-for i=1:3:3*length(t1)   
-R_12d(i:i+2,:) = R1*R_asse_angolo(r2,theta_2(i));
+for i=1:length(theta2)
+    if i==1 
+    R_12d(i:i+2,:) = R1*R_asse_angolo(r2,theta2(i));
+    k=4;
+    end
+    R_12d(k:k+2,:) = R1*R_asse_angolo(r2,theta2(i));
+    k=k+3;
 end
 save('R_12d.txt','R_12d','-ascii','-double')
 theta_dot_2=theta_dot_2(tk(2)/Ts+1:tk(3)/Ts);
@@ -75,8 +85,13 @@ R_a23=R_asse_angolo(r3,thetaf3);
 t1=tk(3):Ts:tk(4);
 R_23d=zeros(3*length(t1),3);
 
-for i=1:3:3*length(t1)   
-R_23d(i:i+2,:) = R2*R_asse_angolo(r3,theta_3(i));
+for i=1:length(theta3)
+    if i==1 
+    R_23d(i:i+2,:) = R2*R_asse_angolo(r3,theta3(i));
+    k=4;
+    end
+    R_23d(k:k+2,:) = R2*R_asse_angolo(r3,theta3(i));
+    k=k+3;
 end
 save('R_23d.txt','R_23d','-ascii','-double')
 theta_dot_3=theta_dot_3(tk(3)/Ts+1:tk(4)/Ts);
@@ -88,14 +103,19 @@ save('w3.txt','w_3','-ascii','-double')
 % calcolo thetaf4 e R45
 [thetaf4,r4,R45]=asse_angolo(R4,R5);
 R_a45=R_asse_angolo(r4,thetaf4);
-[theta_4, theta_dot_4, theta_dot_dot_4,theta4,delta_4]=trapezoidal_profile(tk(5),tk(6),0,thetaf3,tk(end),0,0);
+[theta_4, theta_dot_4, theta_dot_dot_4,theta4,delta_4]=trapezoidal_profile(tk(5),tk(6),0,thetaf4,tk(end),0,0);
 t1=tk(5):Ts:tk(6);
 R_45d=zeros(3*length(t1),3);
 
-for i=1:3:3*length(t1)   
-R_45d(i:i+2,:) = R4*R_asse_angolo(r4,theta_4(i));
+for i=1:length(theta4)
+    if i==1 
+    R_45d(i:i+2,:) = R4*R_asse_angolo(r4,theta4(i));
+    k=4;
+    end
+    R_45d(k:k+2,:) = R4*R_asse_angolo(r4,theta4(i));
+    k=k+3;
 end
-save('R_45d.txt','R_45d','-ascii','-double')
+save('R_45d.txt','R_45d','-ascii','-double')    
 theta_dot_4=theta_dot_4(tk(5)/Ts+1:tk(6)/Ts);
 w_4=theta_dot_4.*r4;
 w_4=R4*w_4;
