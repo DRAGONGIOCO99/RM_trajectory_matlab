@@ -142,7 +142,7 @@ P_dot=[ r1_dot(:,tk(1)*1000+1:1000*tk(3)) ...
       r2_dot(:,tk(6)*1000+1:1000*tk(8))];%PATH
 
 P_dot=P_dot';
-save('Xd_dot.txt','P','-ascii','-double');
+save('Xd_dot.txt','P_dot','-ascii','-double');
 P_dot=P_dot';
 
 figure
@@ -168,8 +168,8 @@ P_dot_dot=[ r1_dot_dot(:,tk(1)*1000+1:1000*tk(3)) ...
 
 
 P_dot_dot=P_dot_dot';
-save('Xd_dot_dot.txt','P','-ascii','-double')
-p_dot_dot=P_dot_dot';
+save('Xd_dot_dot.txt','P_dot_dot','-ascii','-double')
+P_dot_dot=P_dot_dot';
 
 
 figure
