@@ -44,6 +44,11 @@ for i=1:3:3*length(t1)
 R_01d(i:i+2,:) = R0*R_asse_angolo(r1,theta_1(i));
 end
 save('R_01d.txt','R_01d','-ascii','-double')
+theta_dot_1=theta_dot_1(1:tk(2)/Ts);
+w_1=theta_dot_1.*r1;
+w_1=R0*w_1;
+w_1=w_1';
+save('w1.txt','w_1','-ascii','-double')
 
 % calcolo thetaf2 e R12
 [thetaf2,r2,R12]=asse_angolo(R1,R2);
@@ -56,6 +61,12 @@ for i=1:3:3*length(t1)
 R_12d(i:i+2,:) = R1*R_asse_angolo(r2,theta_2(i));
 end
 save('R_12d.txt','R_12d','-ascii','-double')
+theta_dot_2=theta_dot_2(tk(2)/Ts+1:tk(3)/Ts);
+w_2=theta_dot_2.*r2;
+w_2=R1*w_2;
+w_2=w_2';
+save('w2.txt','w_2','-ascii','-double')
+
 
 % calcolo thetaf3 e R23
 [thetaf3,r3,R23]=asse_angolo(R2,R3);
@@ -68,6 +79,11 @@ for i=1:3:3*length(t1)
 R_23d(i:i+2,:) = R2*R_asse_angolo(r3,theta_3(i));
 end
 save('R_23d.txt','R_23d','-ascii','-double')
+theta_dot_3=theta_dot_3(tk(3)/Ts+1:tk(4)/Ts);
+w_3=theta_dot_3.*r3;
+w_3=R2*w_3;
+w_3=w_3';
+save('w3.txt','w_3','-ascii','-double')
 
 % calcolo thetaf4 e R45
 [thetaf4,r4,R45]=asse_angolo(R4,R5);
@@ -80,6 +96,14 @@ for i=1:3:3*length(t1)
 R_45d(i:i+2,:) = R4*R_asse_angolo(r4,theta_4(i));
 end
 save('R_45d.txt','R_45d','-ascii','-double')
+theta_dot_4=theta_dot_4(tk(5)/Ts+1:tk(6)/Ts);
+w_4=theta_dot_4.*r4;
+w_4=R4*w_4;
+w_4=w_4';
+save('w4.txt','w_4','-ascii','-double')
+
+
+
 
 
 
