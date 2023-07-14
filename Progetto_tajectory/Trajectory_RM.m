@@ -11,7 +11,7 @@ p3=[-0.5 -0.5 0.3]';
 p4=[-0.5 -0.5 0.6]'; 
 p5=[-0.5 0 0.6]'; % semicirconferenza di raggio 0.25 con centro [-0.5 -0.25 0.6] che parte da p4 e arriva a p5
 p6=[0 0.5 0.5]';
-p7=p0;
+p7=[0 0.5 0.6]';
 
 Ts=0.01;
 
@@ -19,7 +19,7 @@ ro1=0.25;
 % ro2=0.4;   
 c1=[-0.5 -0.25 0.6]';
 % c2=[0 0 0.75]';
-R1=eul2rotm([-pi 0 pi/2],"XYZ"); % rotazione di "-pi/2" intorno z per allineare asse c verso pto iniziale 
+R1=eul2rotm([0 0 -pi/2],"XYZ"); % rotazione di "-pi/2" intorno z per allineare asse c verso pto iniziale 
 
 tk=[0 ,4, 8, 12, 16, 20, 24, 28]; % tempo di simulazione N*T durata tot traiettoria 
 p=[p0 p1 p2 p3 p4 p5 p6 p7 ];
