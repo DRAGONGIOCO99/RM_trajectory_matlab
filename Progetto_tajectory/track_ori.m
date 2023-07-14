@@ -3,7 +3,7 @@ close all
 clc
 
 %%  Ori trajectory 
-Ts=0.001;
+Ts=0.01;
 eta_1=[pi/2 0 -pi/2]';  % pi/2 su x  --- -pi/2 su z
 eta_2=[0 -pi/2 -pi]'; % rotazioni rispetto terna corrente postmoltiplicazioni 
                         % pi/2 rispetto a y ---> -pi rispetto a z corrente 
