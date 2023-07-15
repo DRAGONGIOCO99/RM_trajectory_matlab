@@ -20,6 +20,8 @@ R0=[-0.924513 0.0135496 0.38091;  % R_e^0
     0.0932341 0.977044 0.191552;
     -0.36957 0.212609 -0.904553];
 eul = rotm2eul(R0,"XYZ"); % orienation of the first desired frame respect to zero frame 
+
+
 eta_0=rad2deg(eul);
 R1 = eul2rotm([pi/2 0 -pi/2],"XYZ");
 R2 = eul2rotm([0 -pi/2 pi],"XYZ");
@@ -28,6 +30,13 @@ R4 = R3;
 R5 = eul2rotm([0 pi/2 0],"XYZ");
 R6 = R5;
 R7 = R5;
+
+
+R0=[-0.924513 0.0135496 0.38091;  % R_e^0 
+    0.0932341 0.977044 0.191552;
+    -0.36957 0.212609 -0.904553];
+eul = rotm2eul(R0,"XYZ");
+
 
 
 %% time law theta

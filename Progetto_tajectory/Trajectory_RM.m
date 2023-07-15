@@ -4,24 +4,26 @@ clc
 
 %% definizione punti della traiettoria
 
+scale=0.7;
 p0=[0.5 0 0.5]';
-p1=[0.5 -0.5 0.3]';
-p2=[0 -0.65 0.4]';
-p3=[-0.5 -0.5 0.3]';
-p4=[-0.5 -0.5 0.6]'; 
-p5=[-0.5 0 0.6]'; % semicirconferenza di raggio 0.25 con centro [-0.5 -0.25 0.6] che parte da p4 e arriva a p5
-p6=[0 0.5 0.5]';
-p7=[0 0.5 0.6]';
+p1=scale*[0.5 -0.5 0.3]';
+p2=scale*[0 -0.65 0.4]';
+p3=scale*[-0.5 -0.5 0.3]';
+p4=scale*[-0.5 -0.5 0.6]'; 
+p5=scale*[-0.5 -0.25 0.6]'; % semicirconferenza di raggio 0.25 con centro [-0.5 -0.25 0.6] che parte da p4 e arriva a p5
+p6=scale*[-0.5 -0.25 0.4]';
+p7=scale*[-0.7 -0.25 0.4]';
 
 Ts=0.01;
 
-ro1=0.25;
+ro1=scale*0.25/2;
 % ro2=0.4;   
-c1=[-0.5 -0.25 0.6]';
+c1=scale.*[-0.5 -0.25-0.25/2 0.6]';
 % c2=[0 0 0.75]';
 R1=eul2rotm([0 0 -pi/2],"XYZ"); % rotazione di "-pi/2" intorno z per allineare asse c verso pto iniziale 
+%R1=eul2rotm([-pi 0 pi/2],"XYZ"); % rotazione di "-pi/2" intorno z per allineare asse c verso pto iniziale 
 
-tk=[0 ,4, 8, 12, 16, 20, 24, 28]; % tempo di simulazione N*T durata tot traiettoria 
+tk=[0 ,8, 12, 16, 20, 24, 28, 32]; % tempo di simulazione N*T durata tot traiettoria 
 p=[p0 p1 p2 p3 p4 p5 p6 p7 ];
 
 % angolo orientaento EE
