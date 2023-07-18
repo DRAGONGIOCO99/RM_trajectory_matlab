@@ -10,10 +10,13 @@ close all;
 
 % Importa i dati dal file di testohh
 % eo = importdata('ERRORE_CLIK_or.txt');
-ep = importdata('ERRORE_CLIK_pos.txt');
+e_t = importdata('e.txt');
+ep = importdata('xde.txt');
 Pd = importdata('xd.txt');
 Pe = importdata('xe.txt');
-t=linspace(0,28,length(ep));
+w = importdata('w.txt');
+he = importdata('he.txt');
+t=linspace(0,32,length(ep));
 
 %% plot
 figure()
@@ -39,6 +42,25 @@ figure()
 plot(t,Pe,'LineWidth',1)
 grid("on")
 
+figure()
+plot(t,e_t,'LineWidth',1)
+grid("on")
+
+figure()
+plot(t,he(:,1),'LineWidth',1)
+grid("on")
+
+
+figure()
+plot(t,w,'LineWidth',1)
+grid("on")
+
+
+f=3*sin(t);
+
+figure()
+plot(t,f,'LineWidth',1)
+grid("on")
 
 
 
