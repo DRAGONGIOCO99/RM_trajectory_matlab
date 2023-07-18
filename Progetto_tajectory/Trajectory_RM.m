@@ -173,3 +173,7 @@ plot(ts,P_dot_dot)
 %PLOT
 % figure 
 % plot(Xd_dot_dot,'LineWidth',1);
+%% sine disturb
+he = 3*sin(t);
+he = he';
+save('he_sin.txt','he','-ascii','-double')
